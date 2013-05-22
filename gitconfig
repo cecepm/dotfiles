@@ -1,0 +1,9 @@
+[user]
+  name = Cecep Mahbub
+  email = cecep@ngadimin.com
+
+[pretty]
+  graph = %Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset
+
+[alias]
+  lg = log --color --graph --pretty=graph --abbrev-commit
