@@ -1,0 +1,12 @@
+# ansible playbook for deploying dotfiles, currenty only support ubuntu server
+#
+# usage:
+# ansible-playbook -K -i hostname, site.yml
+#
+
+- hosts: all
+  remote_user: cecep
+
+  tasks:
+  - include: vim.yml
+  - include: dotfiles.yml

@@ -1,0 +1,38 @@
+---
+- name: ensure git is installed
+  apt: name=git state=installed
+  sudo: yes
+
+- name: ensure repository vim-dotfiles exists
+  git:
+    repo: "https://github.com/cecepm/dotfiles-vim.git"
+    dest: "~/.vim"
+    update: no
+
+- name: ensure repository vundle exists
+  git:
+    repo: "https://github.com/gmarik/vundle.git"
+    dest: "~/.vim/bundle/vundle"
+    update: no
+
+- name: copy vimrc
+  command: cp ~/.vim/vimrc ~/.vimrc
+
+# dirty hack, avoiding an error when running BundleInstall
+- name: comment colorscheme options
+  lineinfile: >
+    dest='~/.vimrc'
+    regexp='^colorscheme hybrid'
+    line='"colorscheme hybrid'
+    state=present
+
+- name: install all bundle
+  command: vim +BundleInstall +qall
+
+# now we can safely activate colorscheme options
+- name: comment colorscheme options
+  lineinfile: >
+    dest='~/.vimrc'
+    regexp='^"colorscheme hybrid'
+    line='colorscheme hybrid'
+    state=present
