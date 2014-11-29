@@ -1,6 +1,9 @@
 ---
 - name: ensure git is installed
-  apt: name=git state=installed
+  apt: name={{ item }} state=installed
+  with_items:
+  - git
+  - vim
   sudo: yes
 
 - name: ensure repository vim-dotfiles exists
@@ -16,7 +19,7 @@
     update: no
 
 - name: copy vimrc
-  command: cp ~/.vim/vimrc ~/.vimrc
+  command: cp ~/.vim/vimrc ~/.vimrc creates=~/.vimrc
 
 # dirty hack, avoiding an error when running BundleInstall
 - name: comment colorscheme options
