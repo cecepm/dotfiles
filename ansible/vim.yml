@@ -1,5 +1,5 @@
 ---
-- name: ensure git is installed
+- name: ensure git and vim is installed
   apt: name={{ item }} state=installed
   with_items:
   - git
