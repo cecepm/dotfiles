@@ -5,7 +5,6 @@
 #
 
 - hosts: all
-  remote_user: cecep
 
   tasks:
   - include: vim.yml
