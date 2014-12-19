@@ -25,8 +25,8 @@
 - name: comment colorscheme options
   lineinfile: >
     dest='~/.vimrc'
-    regexp='^colorscheme hybrid'
-    line='"colorscheme hybrid'
+    regexp='^colorscheme Tomorrow-Night-Eighties'
+    line='"colorscheme Tomorrow-Night-Eighties'
     state=present
 
 - name: install all bundle
@@ -36,6 +36,6 @@
 - name: comment colorscheme options
   lineinfile: >
     dest='~/.vimrc'
-    regexp='^"colorscheme hybrid'
-    line='colorscheme hybrid'
+    regexp='^"colorscheme Tomorrow-Night-Eighties'
+    line='colorscheme Tomorrow-Night-Eighties'
     state=present
