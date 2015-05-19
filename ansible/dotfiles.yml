@@ -3,7 +3,6 @@
   git:
     repo: "https://github.com/cecepm/dotfiles.git"
     dest: "~/.dotfiles"
-    update: no
 
 - name: create symlinks
   file: src=~/.dotfiles/{{ item }} dest=~/{{ item }} state=link force=yes

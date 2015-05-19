@@ -10,13 +10,11 @@
   git:
     repo: "https://github.com/cecepm/dotfiles-vim.git"
     dest: "~/.vim"
-    update: no
 
 - name: ensure repository vundle exists
   git:
     repo: "https://github.com/gmarik/vundle.git"
     dest: "~/.vim/bundle/vundle"
-    update: no
 
 - name: copy vimrc
   command: cp ~/.vim/vimrc ~/.vimrc creates=~/.vimrc
