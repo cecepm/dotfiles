@@ -13,27 +13,27 @@
 
 - name: ensure repository vundle exists
   git:
-    repo: "https://github.com/gmarik/vundle.git"
-    dest: "~/.vim/bundle/vundle"
+    repo: "https://github.com/VundleVim/Vundle.vim.git"
+    dest: "~/.vim/bundle/Vundle.vim"
 
 - name: copy vimrc
   command: cp ~/.vim/vimrc ~/.vimrc creates=~/.vimrc
 
-# dirty hack, avoiding an error when running BundleInstall
+# dirty hack, avoiding an error when running PluginInstall
 - name: comment colorscheme options
   lineinfile: >
     dest='~/.vimrc'
-    regexp='^colorscheme Tomorrow-Night-Eighties'
-    line='"colorscheme Tomorrow-Night-Eighties'
+    regexp='^colorscheme molokai'
+    line='"colorscheme molokai'
     state=present
 
 - name: install all bundle
-  command: vim +BundleInstall +qall
+  command: vim +PluginInstall +qall
 
 # now we can safely activate colorscheme options
 - name: comment colorscheme options
   lineinfile: >
     dest='~/.vimrc'
-    regexp='^"colorscheme Tomorrow-Night-Eighties'
-    line='colorscheme Tomorrow-Night-Eighties'
+    regexp='^"colorscheme molokai'
+    line='colorscheme molokai'
     state=present
