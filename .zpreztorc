@@ -68,6 +68,27 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
   'cursor' \
   'root'
 
+# Set the syntax highlight styles.
+if [[ "$(tput colors)" == "256"  ]]; then
+    zstyle ':prezto:module:syntax-highlighting' styles \
+        'alias'                  'fg=26'               \
+        'builtin'                'fg=26'               \
+        'command'                'fg=26'               \
+        'commandseparator'       'fg=45'               \
+        'default'                'fg=45'               \
+        'double-hyphen-option'   'fg=39'               \
+        'double-quoted-argument' 'fg=45'               \
+        'function'               'fg=26'               \
+        'globbing'               'fg=39,bold'          \
+        'hashed-command'         'fg=26'               \
+        'history-expansion'      'fg=39'               \
+        'path'                   'fg=39'               \
+        'precommand'             'fg=36'               \
+        'reserved-word'          'fg=36'               \
+        'single-hyphen-option'   'fg=39'               \
+        'single-quoted-argument' 'fg=45'
+fi
+
 #
 # Terminal
 #
